@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
     const endIndex = Math.min(startIndex + pageSize, total);
     res = startIndex > total ? [] : res.slice(startIndex, endIndex);
     return NextResponse.json({ code: 0, data: { list: res, total }, message: `成功` });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ code: 500, message: "服务器错误" }, { status: 500 });
   }
 }
@@ -53,7 +53,7 @@ export async function POST(request: Request) {
       })
     );
     return NextResponse.json({ code: 0, data, message: "添加成功" });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ code: 500, message: "JSON parse error" }, { status: 500 });
   }
 }

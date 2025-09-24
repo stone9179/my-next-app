@@ -16,7 +16,7 @@ export default function Detail() {
     if (id && type == "edit") {
       getData(id);
     }
-  }, [id]);
+  }, [id, type]);
 
   function getData(id: string) {
     axios.get("/api/articles/" + id).then((res) => {
