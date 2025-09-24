@@ -53,7 +53,8 @@ export async function POST(request: Request) {
       })
     );
     return NextResponse.json({ code: 0, data, message: "添加成功" });
-  } catch {
+  } catch (error) {
+    console.log("添加数据-post-error==>", error);
     return NextResponse.json({ code: 500, message: "JSON parse error" }, { status: 500 });
   }
 }
