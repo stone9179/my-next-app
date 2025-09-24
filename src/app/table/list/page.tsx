@@ -18,7 +18,7 @@ export default function List() {
   const [paramObj, setParamObj] = useState({});
   const router = useRouter();
 
-  useEffect(getData, [paramObj, pagination]);
+  useEffect(getData, [paramObj, pagination.pageSize, pagination.current]);
 
   function getData() {
     const params = {
